@@ -1,0 +1,22 @@
+{
+  "name": "udemy-100-onlineshop",
+  "version": "1.0.0",
+  "description": "A Udemy course '100 Days of Code' milestone project - an Online Shop",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yumee-Dev/udemy-100-onlineshop.git"
+  },
+  "author": "Dmitriy Trifonov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yumee-Dev/udemy-100-onlineshop/issues"
+  },
+  "homepage": "https://github.com/Yumee-Dev/udemy-100-onlineshop#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
