@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Yumee-Dev/udemy-100-onlineshop#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.3"
   }
 }
