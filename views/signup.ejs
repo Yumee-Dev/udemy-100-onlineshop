@@ -6,28 +6,28 @@
         <%- include('includes/header') %>
             <main>
                 <h2>Create New Account</h2>
-                <form action="" method="post">
+                <form id="create-account-form" action="signup" method="post">
                     <section>
-                        <label>E-mail</label>
-                        <input type="email" placeholder="example@example.com">
-                        <label>Confirm E-mail</label>
-                        <input type="email" placeholder="example@example.com">
-                        <label>Password</label>
-                        <input type="password" placeholder="password">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="example@example.com">
+                        <label for="confirm-email">Confirm E-mail</label>
+                        <input id="confirm-email" name="confirm-email" type="email" placeholder="example@example.com">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" placeholder="password">
                     </section>
                     <section>
-                        <label>Full Name</label>
-                        <input type="text" placeholder="Rajesh Koothrappali">
-                        <label>Street</label>
-                        <input type="text" placeholder="Test Ave.">
-                        <label>Postal Code</label>
-                        <input type="text" placeholder="K8293">
-                        <label>City</label>
-                        <input type="text" placeholder="Rome">
+                        <label for="fullname">Full Name</label>
+                        <input id="fullname" name="fullname" type="text" placeholder="Rajesh Koothrappali">
+                        <label for="street">Street</label>
+                        <input id="street" name="street" type="text" placeholder="Test Ave.">
+                        <label for="postal-code">Postal Code</label>
+                        <input id="postal-code" name="postal-code" type="text" placeholder="K8293">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" placeholder="Rome">
                     </section>
                     <section>
-                        <button type="submit">Create Account</button>
-                        <button>Login</button>
+                        <button class="btn btn-main" type="submit">Create Account</button>
+                        <button class="btn btn-optional">Login</button>
                     </section>
                 </form>
             </main>

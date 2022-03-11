@@ -15,6 +15,10 @@ app.set('view engine', 'ejs');
 
 app.use(authRoutes);
 
+app.get('/', (req, res) => {
+    res.redirect('signup');
+});
+
 app.get('/401', (req, res) => {
     res.status(401).render('401');
 });
