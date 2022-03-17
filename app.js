@@ -1,7 +1,29 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const { Schema } = mongoose;
+
+// USED FOR TESTING CONNECTION
+// const personSchema = new Schema({
+//     name: { type: String, required: true },
+//     age: { type: Number, min: 0, max: 200 },
+//     favoriteFoods: [String]
+// });
+
+// let Person = mongoose.model('Person', personSchema);
+
+// const person = new Person({
+//     name: 'Yumee',
+//     age: 0,
+//     favoriteFoods: ['background radiation', 'quark-gluon plasma']
+// });
+// person.save();
 
 const authRoutes = require('./routes/auth');
 
