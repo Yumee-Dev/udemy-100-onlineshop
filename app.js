@@ -38,7 +38,15 @@ app.set('view engine', 'ejs');
 app.use(authRoutes);
 
 app.get('/', (req, res) => {
-    res.redirect('signup');
+    res.redirect('cart');
+});
+
+app.get('/cart', (req, res) => {
+    res.render('customer/cart');
+});
+
+app.post('/orders', (req, res) => {
+    res.redirect('404');
 });
 
 app.get('/401', (req, res) => {

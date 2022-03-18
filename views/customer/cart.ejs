@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/head') %>
+
+    <body>
+        <%- include('../includes/header') %>
+            <main class="full-width-page">
+                <h2>Your Cart</h2>
+                <section>
+                    <ul class="cart-items-list">
+                        <li>
+                            <%- include('../includes/cart-item') %>
+                        </li>
+                    </ul>
+                </section>
+                <section id="cart-summary">
+                    <div>
+                        Total: $119.98
+                    </div>
+                    <form action="orders" method="post">
+                        <button class="btn btn-main">Buy Products</button>
+                    </form>
+                </section>
+            </main>
+    </body>
+
+</html>
