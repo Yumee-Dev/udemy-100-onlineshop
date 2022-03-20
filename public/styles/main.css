@@ -18,12 +18,18 @@ body {
 
 .full-width-page {
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .centered-page h2 {
   text-align: center;
+}
+
+h3 {
+  margin: 0 0 .5rem 0;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .btn {
@@ -49,7 +55,7 @@ body {
 
 .full-form {
   width: 100%;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -58,7 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 #create-account-form section:first-child {
@@ -77,4 +83,29 @@ body {
 
 .full-form label {
   margin: 6px 0 2px;
+}
+
+.cart-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-total {
+  color: var(--accent-color);
+  font-weight: bold;
 }
