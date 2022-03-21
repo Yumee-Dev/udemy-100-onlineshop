@@ -45,8 +45,8 @@ app.get('/cart', (req, res) => {
     res.render('customer/cart');
 });
 
-app.post('/orders', (req, res) => {
-    res.redirect('404');
+app.get('/orders', (req, res) => {
+    res.render('orders');
 });
 
 app.get('/401', (req, res) => {
@@ -59,6 +59,10 @@ app.get('/404', (req, res) => {
 
 app.get('/500', (req, res) => {
     res.status(500).render('500');
+});
+
+app.get('/*', (req, res) => {
+    res.redirect('404');
 });
 
 console.log('Server is running...');

@@ -20,9 +20,23 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 0 0 0.5rem;
+  margin: 0 0 0 1.5rem;
 }
 
 nav ul li:nth-child(1) {
   margin: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#cart-quantity {
+  display: inline;
+  border-radius: 12px;
+  padding: 1px .8rem;
+  margin-left: .5rem;
+  background-color: var(--accent-color-dark);
+  color: var(--light-font);
 }

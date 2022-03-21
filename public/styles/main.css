@@ -10,16 +10,18 @@ body {
   background-color: #181010;
 }
 
-.centered-page {
+main {
   width: 100%;
-  max-width: 300px;
   margin: 0 auto;
+  padding: 0 .5rem;
+}
+
+.centered-page {
+  max-width: 300px;
 }
 
 .full-width-page {
-  width: 100%;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 .centered-page h2 {
@@ -27,7 +29,7 @@ body {
 }
 
 h3 {
-  margin: 0 0 .5rem 0;
+  margin: 0 0 0.5rem 0;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -42,6 +44,12 @@ h3 {
   cursor: pointer;
 }
 
+.btn-square {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+
 .btn-main {
   background-color: var(--accent-color-dark);
   color: var(--light-font);
@@ -50,6 +58,18 @@ h3 {
 @media (any-hover: hover) {
   .btn-main:hover {
     background-color: var(--accent-color-darker);
+  }
+}
+
+.btn-inverted {
+  border: 1px solid var(--accent-color-dark);
+  color: var(--accent-color-dark);
+}
+
+@media (any-hover: hover) {
+  .btn-inverted:hover {
+    border: 1px solid var(--accent-color-darker);
+    color: var(--accent-color-darker);
   }
 }
 
@@ -97,6 +117,28 @@ h3 {
   margin-top: 0.5rem;
   padding: 12px;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.item-quantity {
+  -moz-appearance: none;
+  margin: 0 0.5rem;
+}
+
+.item-quantity::-webkit-inner-spin-button,
+.item-quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.item-quantity:invalid {
+  background-color: #ffc6c6;
+}
+
+.cart-item-details small {
+  margin-left: 0.2rem;
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--darker-font);
 }
 
 #cart-summary {
