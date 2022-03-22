@@ -1,0 +1,33 @@
+.orders-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  border-radius: 2px;
+  padding: 12px 12px 18px 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+li:first-child .order {
+  margin-top: 0;
+}
+
+.order-total-sum {
+  color: var(--accent-color);
+}
+
+.order-items {
+  margin-top: 0.5rem;
+}
+
+.order-status {
+  border-radius: 12px;
+  padding: 1px 0.8rem;
+  background-color: var(--accent-color-dark);
+  color: var(--light-font);
+}

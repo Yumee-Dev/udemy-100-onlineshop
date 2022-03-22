@@ -10,21 +10,25 @@ const userSchema = new Schema({
     fullname: { type: String, required: true },
     address: {
         street: String,
-        postalcode: String,
+        postalCode: String,
         city: String
     }
 });
 
 let User = mongoose.model('User', userSchema);
 
-const user = new User({
-    email: 'test@test.com',
-    password: 'DFSjsfi23dsbH',
-    fullname: 'Max Damage',
-    address: {
-        street: 'Teststreet',
-        postalcode: '7920D',
-        city: 'Heavenburg'
-    }
-});
-user.save();
+function signupNewUser(email, password, fullname, address) {
+    const user = new User({
+        email: email,
+        password: password,
+        fullname: fullname,
+        address: {
+            street: address.street,
+            postalCode: address.postalCode,
+            city: address.city
+        }
+    });
+    return user.save();
+}
+
+module.exports = signupNewUser;
