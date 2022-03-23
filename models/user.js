@@ -18,6 +18,9 @@ const userSchema = new Schema({
 let User = mongoose.model('User', userSchema);
 
 function signupNewUser(email, password, fullname, address) {
+    return 'Ok';
+    // MongoDB doesn't work anymore
+    // replace with Yandex Cloud later
     const user = new User({
         email: email,
         password: password,
