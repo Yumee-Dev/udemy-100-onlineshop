@@ -1,70 +1,34 @@
-require('dotenv').config();
-
-const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
-// const mongoose = require('mongoose');
+const csrf = require('csurf');
 
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-// const { Schema } = mongoose;
-
-// USED FOR TESTING CONNECTION
-// const personSchema = new Schema({
-//     name: { type: String, required: true },
-//     age: { type: Number, min: 0, max: 200 },
-//     favoriteFoods: [String]
-// });
-
-// let Person = mongoose.model('Person', personSchema);
-
-// const person = new Person({
-//     name: 'Yumee',
-//     age: 0,
-//     favoriteFoods: ['background radiation', 'quark-gluon plasma']
-// });
-// person.save();
-
-const authRoutes = require('./routes/auth');
+const db = require('./data/database');
+const addCsrfTokenMiddleware = require('./middlewares/csrf-token-middleware');
+const errorHandlerMiddleware = require('./middlewares/error-handler-middleware');
+const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false }));
-
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }))
+
+app.use(csrf());
+
+app.use(addCsrfTokenMiddleware);
 
 app.use(authRoutes);
 
-app.get('/', (req, res) => {
-    res.redirect('cart');
-});
+app.use(errorHandlerMiddleware);
 
-app.get('/cart', (req, res) => {
-    res.render('customer/cart');
-});
-
-app.get('/orders', (req, res) => {
-    res.render('orders');
-});
-
-app.get('/401', (req, res) => {
-    res.status(401).render('401');
-});
-
-app.get('/404', (req, res) => {
-    res.status(404).render('404');
-});
-
-app.get('/500', (req, res) => {
-    res.status(500).render('500');
-});
-
-app.get('/*', (req, res) => {
-    res.redirect('404');
-});
-
-console.log('Server is running...');
-
-app.listen(3000);
+db.connectToDatabase()
+    .then(() => {
+        app.listen(3000);
+    })
+    .catch(error => {
+        console.log('Failed to connect to the database!');
+        console.log(error);
+    });
