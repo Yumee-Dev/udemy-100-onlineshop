@@ -2,10 +2,13 @@ const path = require('path');
 
 const express = require('express');
 const csrf = require('csurf');
+const expressSession = require('express-session');
 
+const createSessionConfig = require('./config/session');
 const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token-middleware');
 const errorHandlerMiddleware = require('./middlewares/error-handler-middleware');
+const checkAuthStatusMiddleware = require('./middlewares/page-access-middleware');
 const authRoutes = require('./routes/auth.routes');
 
 const app = express();
@@ -16,9 +19,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }))
 
+const sessionConfig = createSessionConfig();
+
+app.use(expressSession(sessionConfig));
 app.use(csrf());
 
 app.use(addCsrfTokenMiddleware);
+app.use(checkAuthStatusMiddleware);
 
 app.use(authRoutes);
 
