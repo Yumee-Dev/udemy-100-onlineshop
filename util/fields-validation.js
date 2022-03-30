@@ -1,4 +1,4 @@
-function userCredentialsAreValid(email, confirmEmail, password) {
+function userCredentialsAreValid(email, confirmEmail, password, street, postal, city) {
     return (
         email &&
         confirmEmail &&
