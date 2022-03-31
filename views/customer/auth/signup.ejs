@@ -6,25 +6,31 @@
         <%- include('includes/header') %>
             <main class="centered-page">
                 <h2>Create New Account</h2>
+                <% if (inputData.errorMessage) { %>
+                    <section class="alert">
+                        <h2>Invalid Input</h2>
+                        <p><%= inputData.errorMessage %></p>
+                    </section>
+                <% } %>
                 <form id="create-account-form" class="full-form" action="/signup" method="post">
                     <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
                     <section>
                         <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" placeholder="example@example.com">
+                        <input id="email" name="email" type="email" value="<%= inputData.email %>" placeholder="example@example.com">
                         <label for="confirm-email">Confirm E-mail</label>
-                        <input id="confirm-email" name="confirm-email" type="email" placeholder="example@example.com">
+                        <input id="confirm-email" name="confirm-email" type="email" value="<%= inputData.confirmEmail %>" placeholder="example@example.com">
                         <label for="password">Password</label>
-                        <input id="password" name="password" type="password" placeholder="password">
+                        <input id="password" name="password" type="password" value="<%= inputData.password %>" placeholder="password">
                     </section>
                     <section>
                         <label for="fullname">Full Name</label>
-                        <input id="fullname" name="fullname" type="text" placeholder="Rajesh Koothrappali">
+                        <input id="fullname" name="fullname" type="text" value="<%= inputData.fullname %>" placeholder="Rajesh Koothrappali">
                         <label for="street">Street</label>
-                        <input id="street" name="street" type="text" placeholder="Test Ave.">
+                        <input id="street" name="street" type="text" value="<%= inputData.street %>" placeholder="Test Ave.">
                         <label for="postal-code">Postal Code</label>
-                        <input id="postal-code" name="postal-code" type="text" placeholder="K8293">
+                        <input id="postal-code" name="postal-code" type="text" value="<%= inputData.postal %>" placeholder="K8293">
                         <label for="city">City</label>
-                        <input id="city" name="city" type="text" placeholder="Rome">
+                        <input id="city" name="city" type="text" value="<%= inputData.city %>" placeholder="Rome">
                     </section>
                     <section>
                         <button class="btn btn-main" type="submit">Create Account</button>

@@ -1,6 +1,7 @@
 <header>
     <a href="/"> <img src="images/logo.png" id="site-logo"></a>
-    <% if (locals.isAuth) { %><div></div><% } %>
+    <% if (locals.isAuth) { %><div>Authorized Access</div><% } %>
+    <% if (locals.isAdmin) { %><div>Administrative Access</div><% } %>    
     <nav class="navbar">
         <ul>
             <li><a href="products">Shop</a></li>
