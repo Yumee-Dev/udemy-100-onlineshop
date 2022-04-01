@@ -10,6 +10,7 @@ const addCsrfTokenMiddleware = require('./middlewares/csrf-token-middleware');
 const errorHandlerMiddleware = require('./middlewares/error-handler-middleware');
 const checkAuthStatusMiddleware = require('./middlewares/page-access-middleware');
 const authRoutes = require('./routes/auth.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
 app.use(authRoutes);
+app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);
 
