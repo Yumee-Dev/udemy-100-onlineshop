@@ -1,12 +1,20 @@
 <%- include('../../shared/includes/head') %>
-<%- include('../../shared/includes/header') %>
+    <link rel="stylesheet" href="/styles/main.css">
+    </head>
 
-<main>
-    <h1>Add new product</h1>
-    <form action="" method="POST">
-        <p>
-            <label for="image"></label>
-            <input type="file" id="image" name="image" accept="image/png,image/jpg">
-        </p>
-    </form>
-</main>
+    <body>
+        <%- include('../../shared/includes/header') %>
+
+            <main>
+                <h1>Add new product</h1>
+                <!-- For uploading image we need enctype multipart/form-data
+                but hidden input with csrf token doesn't work with multipart
+                so csrf token is included into action path-->
+                <form action="/admin/products?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+                    <p>
+                        <label for="image"></label>
+                        <input type="file" id="image" name="image" accept="image/png,image/jpg">
+                    </p>
+                </form>
+            </main>
+    </body>
