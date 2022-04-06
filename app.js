@@ -9,6 +9,7 @@ const db = require('./data/database');
 const addCsrfTokenMiddleware = require('./middlewares/csrf-token-middleware');
 const errorHandlerMiddleware = require('./middlewares/error-handler-middleware');
 const checkAuthStatusMiddleware = require('./middlewares/page-access-middleware');
+const protectRoutesMiddleware = require('./middlewares/auth-middleware');
 const authRoutes = require('./routes/auth.routes');
 const adminRoutes = require('./routes/admin.routes');
 
@@ -30,6 +31,9 @@ app.use(addCsrfTokenMiddleware);
 app.use(checkAuthStatusMiddleware);
 
 app.use(authRoutes);
+// we need to use protectRoutesMiddleware before accessing admin routes
+// to ensure that a user is authorized and is admin
+app.use(protectRoutesMiddleware);
 app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);
