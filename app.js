@@ -14,6 +14,7 @@ const cartMiddleware = require('./middlewares/cart');
 const authRoutes = require('./routes/auth.routes');
 const adminRoutes = require('./routes/admin.routes');
 const cartRoutes = require('./routes/cart.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/cart', cartRoutes);
 // we need to use protectRoutesMiddleware before accessing admin routes
 // to ensure that a user is authorized and is admin
 app.use(protectRoutesMiddleware);
+app.use('/orders', ordersRoutes);
 app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);
